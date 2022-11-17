@@ -1,5 +1,6 @@
 package com.docuscore.docs.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,18 +13,19 @@ public class EnrollEntity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int enroll_id;
+	@Column(name="enroll_id")
+	private int enrollId;
 
 	
 	public EnrollEntity() {}
-	public EnrollEntity(int enroll_id) {
+	public EnrollEntity(int enrollId) {
 		super();
-		this.enroll_id = enroll_id;
+		this.enrollId = enrollId;
 	}
 
 	
-	public int getEnroll_id() {
-		return enroll_id;
+	public int getEnrollId() {
+		return enrollId;
 	}
 	
 	

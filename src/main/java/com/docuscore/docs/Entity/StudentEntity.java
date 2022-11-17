@@ -1,5 +1,6 @@
 package com.docuscore.docs.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,59 +13,79 @@ public class StudentEntity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String student_id;
-	private String stud_school_id;
-	private int class_number;
-	private String first_name;
-	private String last_name;
-	private boolean is_deleted;
+	@Column(name="student_id")
+	private int studentId;
+	@Column(name="stud_school_id")
+	private String studSchoolId;
+	@Column(name="class_number")
+	private int classNumber;
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
+	@Column(name="is_deleted")
+	private boolean Isdeleted;
 	
 	
 	public StudentEntity() {}
-	public StudentEntity(String student_id, String stud_school_id, int class_number, String first_name,
-			String last_name, boolean is_deleted) {
+
+
+	public StudentEntity(int studentId, String studSchoolId, int classNumber, String firstName, String lastName,
+			boolean isdeleted) {
 		super();
-		this.student_id = student_id;
-		this.stud_school_id = stud_school_id;
-		this.class_number = class_number;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.is_deleted = is_deleted;
+		this.studentId = studentId;
+		this.studSchoolId = studSchoolId;
+		this.classNumber = classNumber;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		Isdeleted = isdeleted;
 	}
 
 
-	public int getClass_number() {
-		return class_number;
+	public String getStudSchoolId() {
+		return studSchoolId;
 	}
 
-	public void setClass_number(int class_number) {
-		this.class_number = class_number;
+
+	public void setStudSchoolId(String studSchoolId) {
+		this.studSchoolId = studSchoolId;
 	}
 
-	public boolean isIs_deleted() {
-		return is_deleted;
+
+	public int getClassNumber() {
+		return classNumber;
 	}
 
-	public void setIs_deleted(boolean is_deleted) {
-		this.is_deleted = is_deleted;
+
+	public void setClassNumber(int classNumber) {
+		this.classNumber = classNumber;
 	}
 
-	public String getStudent_id() {
-		return student_id;
+
+	public boolean isIsdeleted() {
+		return Isdeleted;
 	}
 
-	public String getStud_school_id() {
-		return stud_school_id;
+
+	public void setIsdeleted(boolean isdeleted) {
+		Isdeleted = isdeleted;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+
+	public int getStudentId() {
+		return studentId;
 	}
 
-	public String getLast_name() {
-		return last_name;
+
+	public String getFirstName() {
+		return firstName;
 	}
-	
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
 	
 	
 	

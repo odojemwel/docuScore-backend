@@ -1,5 +1,6 @@
 package com.docuscore.docs.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,69 +13,86 @@ public class TeacherEntity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int teacher_id;
-	private String employee_id;
-	private String first_name;
-	private String last_name;
-	private String date_employed;
+	@Column(name="teacher_id")
+	private int teacherId;
+	@Column(name="employee_id")
+	private String employeeId;
+	@Column(name="first_name")
+	private String firstName;
+	@Column(name="last_name")
+	private String lastName;
+	@Column(name="date_employed")
+	private String dateEmployed;
+	@Column(name="password")
 	private String password;
-	private boolean is_active;
+	@Column(name="is_active")
+	private boolean isActive;
 	
 	
 	public TeacherEntity() {}
-	public TeacherEntity(int teacher_id, String employee_id, String first_name, String last_name, String date_employed,
-			String password, boolean is_active) {
+
+
+	public TeacherEntity(int teacherId, String employeeId, String firstName, String lastName, String dateEmployed,
+			String password, boolean isActive) {
 		super();
-		this.teacher_id = teacher_id;
-		this.employee_id = employee_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.date_employed = date_employed;
+		this.teacherId = teacherId;
+		this.employeeId = employeeId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateEmployed = dateEmployed;
 		this.password = password;
-		this.is_active = is_active;
+		this.isActive = isActive;
 	}
 
-	
-	public int getTeacher_id() {
-		return teacher_id;
+
+	public String getDateEmployed() {
+		return dateEmployed;
 	}
 
-	public String getDate_employed() {
-		return date_employed;
+
+	public void setDateEmployed(String dateEmployed) {
+		this.dateEmployed = dateEmployed;
 	}
-	
-	public void setDate_employed(String date_employed) {
-		this.date_employed = date_employed;
-	}
-	
+
+
 	public String getPassword() {
 		return password;
 	}
-	
+
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public boolean isIs_active() {
-		return is_active;
+
+
+	public boolean isActive() {
+		return isActive;
 	}
-	
-	public void setIs_active(boolean is_active) {
-		this.is_active = is_active;
+
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
-	
-	public String getEmployee_id() {
-		return employee_id;
+
+
+	public int getTeacherId() {
+		return teacherId;
 	}
-	
-	public String getFirst_name() {
-		return first_name;
+
+
+	public String getEmployeeId() {
+		return employeeId;
 	}
-	
-	public String getLast_name() {
-		return last_name;
+
+
+	public String getFirstName() {
+		return firstName;
 	}
-	
+
+
+	public String getLastName() {
+		return lastName;
+	}
 	
 	
 }

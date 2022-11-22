@@ -23,16 +23,16 @@ public class ScoreEntity {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="exam_id", 
-		referencedColumnName="exam_id", 
-		nullable=false
-		)
+			referencedColumnName="exam_id", 
+			nullable=false
+			)
 	private ExamEntity exam;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="student_id",
-		referencedColumnName="student_id",
-		nullable=false
-		)
+			referencedColumnName="student_id",
+			nullable=false
+			)
 	private StudentEntity student;
 	
 	public ScoreEntity() {}

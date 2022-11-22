@@ -1,10 +1,15 @@
 package com.docuscore.docs.Entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +28,18 @@ public class ClassEntity {
 	private String section;
 	@Column(name="is_active", columnDefinition = "BOOLEAN")
 	private boolean isActive;
+	
+	@ManyToOne
+	@JoinColumn(name="teacher_id",
+			referencedColumnName="teacher_id",
+			nullable=false)
+	private TeacherEntity teacher;
+	
+	@OneToMany(mappedBy="class_enrolled")
+	private Set<EnrollEntity> enrolled_students;
+	
+	@OneToMany(mappedBy="class_id")
+	private Set<ExamEntity> exams;
 	
 	
 	public ClassEntity() {}

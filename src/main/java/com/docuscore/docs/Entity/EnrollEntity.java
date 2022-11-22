@@ -20,9 +20,17 @@ public class EnrollEntity {
 
 	@ManyToOne
 	@JoinColumn(name="student_id",
-		referencedColumnName="student_id"
-		)
+			referencedColumnName="student_id",
+			nullable=false
+			)
 	private StudentEntity student;
+	
+	@ManyToOne
+	@JoinColumn(name="class_id",
+			referencedColumnName="class_id",
+			nullable=false
+			)
+	private ClassEntity class_enrolled;
 	
 	public EnrollEntity() {}
 	public EnrollEntity(int enrollId) {

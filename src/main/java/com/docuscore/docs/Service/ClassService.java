@@ -15,39 +15,39 @@ public class ClassService {
 	@Autowired
 	ClassRepository crepo;
 	
-	//C
-	public ClassEntity createClass(ClassEntity class) {
-		return crepo.save(class);
+	//Create
+	public ClassEntity createClass(ClassEntity newClass) {
+		return crepo.save(newClass);
 	}
 	
-	//R
+	//Read
 	public List<ClassEntity> getAllClass(){
 		return crepo.findAll();
 	}
 	
-	//U
+	//Update
 	public ClassEntity putClass(int classId, ClassEntity newClass) throws Exception{
-		ClassEntity class = new ClassEntity();
+		ClassEntity class_entity  = new ClassEntity();
 		try {
-			class = crepo.findById(classId).get();
-			class.setSubject(newClass.getSubject());
-			class.setYearLevel(newClass.getYearLevel());
-			class.setSection(newClass.getSection());
-			class.setActive(newClass.isActive());
-			return crepo.save(Class);
+			class_entity = crepo.findById(classId).get();
+			class_entity.setSubject(newClass.getSubject());
+			class_entity.setYearLevel(newClass.getYearLevel());
+			class_entity.setSection(newClass.getSection());
+			class_entity.setActive(newClass.isActive());
+			return crepo.save(class_entity);
 		}catch(NoSuchElementException e) {
-			throw new Exception("Class with ID " +ClassId+ " does not exist.");
+			throw new Exception("Class with ID " +classId+ " does not exist.");
 		}
 	}
 	
-	//D
-	public String deleteClass(int ClassId) {
+	//Delete
+	public String deleteClass(int classId) {
 		String msg;
-		if(crepo.findById(ClassId) != null) {
-			crepo.deleteById(ClassId);
-			msg = "Class with ID " +ClassId+ "is deleted!";
+		if(crepo.findById(classId) != null) {
+			crepo.deleteById(classId);
+			msg = "Class with ID " +classId+ "is deleted!";
 		}else {
-			msg = "Class with ID " +ClassId+ "does not exist!";
+			msg = "Class with ID " +classId+ "does not exist!";
 		}
 		return msg;
 	}

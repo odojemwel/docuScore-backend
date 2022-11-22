@@ -26,8 +26,8 @@ public class ClassController {
 	
 	//Create
 	@PostMapping("/postClass")
-	public ClassEntity insertClass(@RequestBody ClassEntity Class) {
-		return clserv.insertClass(Class);
+	public ClassEntity createClass(@RequestBody ClassEntity Class) {
+		return clserv.createClass(Class);
 	}
 	
 	//Read all

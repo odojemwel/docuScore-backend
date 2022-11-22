@@ -30,8 +30,9 @@ public class TeacherService {
 		TeacherEntity teacher = new TeacherEntity();
 		try {
 			teacher = trepo.findById(teacherId).get();
-			teacher.setDateEmployed(teacher.getDateEmployed());
-			teacher.setActive(teacher.isActive());
+			teacher.setDateEmployed(newTeacher.getDateEmployed());
+			teacher.setActive(newTeacher.isActive());
+			teacher.setPassword(newTeacher.getPassword());
 			return trepo.save(teacher);
 		}catch(NoSuchElementException e) {
 			throw new Exception("Teacher with ID " +teacherId+ " does not exist.");
@@ -43,9 +44,9 @@ public class TeacherService {
 		String msg;
 		if(trepo.findById(teacherId) != null) {
 			trepo.deleteById(teacherId);
-			msg = "Teacher with ID " +teacherId+ "is deleted!";
+			msg = "Teacher with ID " +teacherId+ " is deleted!";
 		}else {
-			msg = "Teacher with ID " +teacherId+ "does not exist!";
+			msg = "Teacher with ID " +teacherId+ " does not exist!";
 		}
 		return msg;
 	}

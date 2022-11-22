@@ -1,11 +1,15 @@
 package com.docuscore.docs.Entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="tbl_teacher")
@@ -15,24 +19,30 @@ public class TeacherEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="teacher_id")
 	private int teacherId;
+	
 	@Column(name="employee_id")
 	private String employeeId;
+	
 	@Column(name="first_name")
 	private String firstName;
+	
 	@Column(name="last_name")
 	private String lastName;
-	@Column(name="date_employed")
-	private String dateEmployed;
+	
+	@Column(name="date_employed") //'YYYY-MM-DD'
+	@Temporal(TemporalType.DATE)
+	private Date dateEmployed;
+	
 	@Column(name="password")
 	private String password;
-	@Column(name="is_active")
+	
+	@Column(name="is_active", columnDefinition = "BOOLEAN")
 	private boolean isActive;
 	
 	
 	public TeacherEntity() {}
 
-
-	public TeacherEntity(int teacherId, String employeeId, String firstName, String lastName, String dateEmployed,
+	public TeacherEntity(int teacherId, String employeeId, String firstName, String lastName, Date dateEmployed,
 			String password, boolean isActive) {
 		super();
 		this.teacherId = teacherId;
@@ -45,12 +55,14 @@ public class TeacherEntity {
 	}
 
 
-	public String getDateEmployed() {
+
+
+	public Date getDateEmployed() {
 		return dateEmployed;
 	}
 
 
-	public void setDateEmployed(String dateEmployed) {
+	public void setDateEmployed(Date dateEmployed) {
 		this.dateEmployed = dateEmployed;
 	}
 

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,11 @@ public class EnrollEntity {
 	@Column(name="enroll_id")
 	private int enrollId;
 
+	@ManyToOne
+	@JoinColumn(name="student_id",
+		referencedColumnName="student_id"
+		)
+	private StudentEntity student;
 	
 	public EnrollEntity() {}
 	public EnrollEntity(int enrollId) {

@@ -23,27 +23,27 @@ public class TeacherController {
 	@Autowired
 	TeacherService tserv;
 	
-	//C
-	@PostMapping("/putTeacher")
+	//Create
+	@PostMapping("/postTeacher") //TODO edit to post teacher
 	public TeacherEntity createTeacher(@RequestBody TeacherEntity teacher) {
 		return tserv.createTeacher(teacher);
 	}
 	
-	//R
+	//Read
 	@GetMapping("/getAllTeacher")
 	public List<TeacherEntity> getAllTeacher(){
 		return tserv.getAllTeacher();
 	}
 	
-	//U
+	//Update
 	@PutMapping("/putTeacher")
 	public TeacherEntity putTeacher(@RequestParam int teacherId, @RequestBody TeacherEntity newTeacher) throws Exception{
 		return tserv.putTeacher(teacherId, newTeacher);
 	}
 	
 	
-	//D
-	@DeleteMapping("/deleteTeacher/{id}")
+	//Delete
+	@DeleteMapping("/deleteTeacher/{teacherId}")
 	public String deleteTeacher(@PathVariable int teacherId) {
 		return tserv.deleteTeacher(teacherId);
 	}

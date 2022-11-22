@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +24,9 @@ public class ExamEntity {
 	private int totalItems;
 	@Column(name="is_deleted", columnDefinition = "BOOLEAN")
 	private boolean isDeleted;
+	
+	@OneToOne(mappedBy="exam")
+	private ScoreEntity score;
 	
 	
 	public ExamEntity() {}

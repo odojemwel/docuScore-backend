@@ -1,10 +1,14 @@
 package com.docuscore.docs.Entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +29,12 @@ public class StudentEntity {
 	private String lastName;
 	@Column(name="is_deleted")
 	private boolean Isdeleted;
+
+	@OneToOne(mappedBy="student")
+	private ScoreEntity score;
 	
+	@OneToMany(mappedBy="student")
+	private Set<EnrollEntity> enroll;
 	
 	public StudentEntity() {}
 

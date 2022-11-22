@@ -27,7 +27,7 @@ public class StudentEntity {
 	private String firstName;
 	@Column(name="last_name")
 	private String lastName;
-	@Column(name="is_deleted")
+	@Column(name="is_deleted", columnDefinition = "BOOLEAN")
 	private boolean Isdeleted;
 
 	@OneToOne(mappedBy="student")

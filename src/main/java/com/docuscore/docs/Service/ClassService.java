@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.docuscore.docs.Entity.ClassEntity;
+import com.docuscore.docs.Entity.TeacherEntity;
 import com.docuscore.docs.Repository.ClassRepository;
 
 @Service
@@ -52,4 +53,13 @@ public class ClassService {
 		return msg;
 	}
 	
+	
+	//findClassesByTeacherID
+	public List<ClassEntity> getClassByTeacher(TeacherEntity teacher){
+		List<ClassEntity> classes = crepo.findByTeacher(teacher);
+		if(classes != null) {
+			return classes;
+		}else
+			return null;
+	}
 }

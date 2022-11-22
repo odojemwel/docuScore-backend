@@ -54,4 +54,9 @@ public class ExamService {
 		}
 		return msg;
 	}
+	
+	//findExamById
+	public ExamEntity getExamById(int examId) {
+		return erepo.findByExamId(examId);
+	}
 }

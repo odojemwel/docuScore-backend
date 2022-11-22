@@ -7,4 +7,5 @@ import com.docuscore.docs.Entity.StudentEntity;
 
 @Repository
 public interface StudentRepository extends JpaRepository<StudentEntity, Integer>{
+	StudentEntity findByStudentId(int studentId);
 }

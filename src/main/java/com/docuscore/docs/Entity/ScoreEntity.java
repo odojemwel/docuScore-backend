@@ -21,27 +21,59 @@ public class ScoreEntity {
 	@Column(name="value")
 	private float value;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="exam_id", 
 			referencedColumnName="exam_id", 
 			nullable=false
 			)
 	private ExamEntity exam;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="student_id",
 			referencedColumnName="student_id",
 			nullable=false
 			)
 	private StudentEntity student;
-	
-	public ScoreEntity() {}
-	
 
-	public ScoreEntity(int scoreId, float value) {
+	public ScoreEntity() {
+		super();
+	}
+
+	public ScoreEntity(int scoreId, float value, ExamEntity exam, StudentEntity student) {
 		super();
 		this.scoreId = scoreId;
 		this.value = value;
+		this.exam = exam;
+		this.student = student;
 	}
 
+	public float getValue() {
+		return value;
+	}
+
+	public void setValue(float value) {
+		this.value = value;
+	}
+
+	public ExamEntity getExam() {
+		return exam;
+	}
+
+	public void setExam(ExamEntity exam) {
+		this.exam = exam;
+	}
+
+	public StudentEntity getStudent() {
+		return student;
+	}
+
+	public void setStudent(StudentEntity student) {
+		this.student = student;
+	}
+
+	public int getScoreId() {
+		return scoreId;
+	}
+	
+	
 }

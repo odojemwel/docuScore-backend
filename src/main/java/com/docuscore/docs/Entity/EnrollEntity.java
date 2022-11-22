@@ -32,15 +32,32 @@ public class EnrollEntity {
 			)
 	private ClassEntity class_enrolled;
 	
-	public EnrollEntity() {}
-	public EnrollEntity(int enrollId) {
+		
+	public EnrollEntity() {
+		super();
+	}
+	public EnrollEntity(int enrollId, StudentEntity student, ClassEntity class_enrolled) {
 		super();
 		this.enrollId = enrollId;
+		this.student = student;
+		this.class_enrolled = class_enrolled;
 	}
 
-	
+
 	public int getEnrollId() {
 		return enrollId;
+	}
+	public StudentEntity getStudent() {
+		return student;
+	}
+	public void setStudent(StudentEntity student) {
+		this.student = student;
+	}
+	public ClassEntity getClass_enrolled() {
+		return class_enrolled;
+	}
+	public void setClass_enrolled(ClassEntity class_enrolled) {
+		this.class_enrolled = class_enrolled;
 	}
 	
 	

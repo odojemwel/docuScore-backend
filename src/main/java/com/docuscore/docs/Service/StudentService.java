@@ -61,4 +61,9 @@ public class StudentService {
 		
 			return msg;
 		}
+		
+	//findStudentById
+		public StudentEntity getStudentById(int studentId) {
+			return srepo.findByStudentId(studentId);
+		}
 } 

@@ -14,6 +14,7 @@ public class TeacherService {
 
 	@Autowired
 	TeacherRepository trepo;
+//	ClassRepository clrepo;
 	
 	//C
 	public TeacherEntity createTeacher(TeacherEntity teacher) {
@@ -50,4 +51,12 @@ public class TeacherService {
 		}
 		return msg;
 	}
+	
+	
+	//get Teacher By ID
+	public TeacherEntity getTeacherById(int id) {
+		return trepo.findByTeacherId(id);
+	}
+	
+	
 }

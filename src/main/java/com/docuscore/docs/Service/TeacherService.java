@@ -32,7 +32,7 @@ public class TeacherService {
 		try {
 			teacher = trepo.findById(teacherId).get();
 			teacher.setDateEmployed(newTeacher.getDateEmployed());
-			teacher.setActive(newTeacher.isActive());
+			teacher.setDeleted(newTeacher.isDeleted());
 			teacher.setPassword(newTeacher.getPassword());
 			return trepo.save(teacher);
 		}catch(NoSuchElementException e) {
@@ -43,7 +43,7 @@ public class TeacherService {
 	//D
 	public String deleteTeacher(int teacherId) {
 		String msg;
-		if(trepo.findById(teacherId) != null) {
+		if(trepo.findById(teacherId).orElse(null) != null) {
 			trepo.deleteById(teacherId);
 			msg = "Teacher with ID " +teacherId+ " is deleted!";
 		}else {

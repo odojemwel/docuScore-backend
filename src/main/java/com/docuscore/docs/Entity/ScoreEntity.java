@@ -7,11 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="tbl_score")
+@Table(name="tbl_score",
+		uniqueConstraints={@UniqueConstraint(name = "UniqueExamStudent",
+				columnNames = {"exam_id", "student_id"})})
 public class ScoreEntity {
 
 	@Id
@@ -21,17 +24,17 @@ public class ScoreEntity {
 	@Column(name="value")
 	private float value;
 	
-	@OneToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="exam_id", 
-			referencedColumnName="exam_id", 
-			nullable=false
+			referencedColumnName="exam_id",
+			nullable = false
 			)
 	private ExamEntity exam;
 	
-	@OneToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="student_id",
 			referencedColumnName="student_id",
-			nullable=false
+			nullable = false
 			)
 	private StudentEntity student;
 

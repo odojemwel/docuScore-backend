@@ -34,7 +34,7 @@ public class ClassService {
 			class_entity.setSubject(newClass.getSubject());
 			class_entity.setYearLevel(newClass.getYearLevel());
 			class_entity.setSection(newClass.getSection());
-			class_entity.setActive(newClass.isActive());
+			class_entity.setDeleted(newClass.isDeleted());
 			return crepo.save(class_entity);
 		}catch(NoSuchElementException e) {
 			throw new Exception("Class with ID " +classId+ " does not exist.");

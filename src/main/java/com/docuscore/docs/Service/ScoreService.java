@@ -20,8 +20,9 @@ public class ScoreService {
 	}
 	
 	//get Score by Exam and Student
-	public ScoreEntity getScore(ExamEntity exam, StudentEntity student) {
-		return screpo.findByExamAndStudent(exam, student);
+	public ScoreEntity getScore(ExamEntity examId, StudentEntity studentId) {
+		return screpo.findByExamAndStudent(examId, studentId);
+//		return screpo.findByExamIDAndStudentID(examId, studentId);
 	}
 	
 }

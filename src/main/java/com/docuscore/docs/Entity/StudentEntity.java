@@ -2,13 +2,13 @@ package com.docuscore.docs.Entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,26 +28,27 @@ public class StudentEntity {
 	@Column(name="last_name")
 	private String lastName;
 	@Column(name="is_deleted", columnDefinition = "BOOLEAN")
-	private boolean Isdeleted;
+	private boolean isDeleted;
 
-	@OneToOne(mappedBy="student")
-	private ScoreEntity score;
+
+	@OneToMany(mappedBy="student",cascade=CascadeType.ALL)
+	private Set<ScoreEntity> score;
 	
-	@OneToMany(mappedBy="student")
+	@OneToMany(mappedBy="student", cascade=CascadeType.ALL)
 	private Set<EnrollEntity> enroll;
 	
 	public StudentEntity() {}
 
 
 	public StudentEntity(int studentId, String studSchoolId, int classNumber, String firstName, String lastName,
-			boolean isdeleted) {
+			boolean isDeleted) {
 		super();
 		this.studentId = studentId;
 		this.studSchoolId = studSchoolId;
 		this.classNumber = classNumber;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		Isdeleted = isdeleted;
+		this.isDeleted = isDeleted;
 	}
 
 
@@ -71,13 +72,13 @@ public class StudentEntity {
 	}
 
 
-	public boolean isIsdeleted() {
-		return Isdeleted;
+	public boolean isDeleted() {
+		return isDeleted;
 	}
 
 
-	public void setIsdeleted(boolean isdeleted) {
-		Isdeleted = isdeleted;
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 
 

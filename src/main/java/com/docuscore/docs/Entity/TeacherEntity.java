@@ -38,8 +38,8 @@ public class TeacherEntity {
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="is_active", columnDefinition = "BOOLEAN")
-	private boolean isActive;
+	@Column(name="is_deleted", columnDefinition = "BOOLEAN")
+	private boolean isDeleted;
 	
 	@OneToMany(mappedBy="teacher")
 	private Set<ClassEntity> classes;
@@ -47,7 +47,7 @@ public class TeacherEntity {
 	public TeacherEntity() {}
 
 	public TeacherEntity(int teacherId, String employeeId, String firstName, String lastName, Date dateEmployed,
-			String password, boolean isActive) {
+			String password, boolean isDeleted) {
 		super();
 		this.teacherId = teacherId;
 		this.employeeId = employeeId;
@@ -55,10 +55,8 @@ public class TeacherEntity {
 		this.lastName = lastName;
 		this.dateEmployed = dateEmployed;
 		this.password = password;
-		this.isActive = isActive;
+		this.isDeleted = isDeleted;
 	}
-
-
 
 
 	public Date getDateEmployed() {
@@ -81,15 +79,13 @@ public class TeacherEntity {
 	}
 
 
-	public boolean isActive() {
-		return isActive;
+	public boolean isDeleted() {
+		return isDeleted;
 	}
 
-
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
 	}
-
 
 	public int getTeacherId() {
 		return teacherId;

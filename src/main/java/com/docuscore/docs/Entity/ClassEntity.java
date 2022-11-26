@@ -2,6 +2,7 @@ package com.docuscore.docs.Entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,8 @@ public class ClassEntity {
 	private int yearLevel;
 	@Column(name="section")
 	private String section;
-	@Column(name="is_active", columnDefinition = "BOOLEAN")
-	private boolean isActive;
+	@Column(name="is_deleted", columnDefinition = "BOOLEAN")
+	private boolean isDeleted;
 	
 	@ManyToOne
 	@JoinColumn(name="teacher_id",
@@ -35,21 +36,21 @@ public class ClassEntity {
 			nullable=false)
 	private TeacherEntity teacher;
 	
-	@OneToMany(mappedBy="class_enrolled")
+	@OneToMany(mappedBy="class_enrolled", cascade=CascadeType.ALL)
 	private Set<EnrollEntity> enrolled_students;
 	
-	@OneToMany(mappedBy="class_id")
+	@OneToMany(mappedBy="classId", cascade=CascadeType.ALL)
 	private Set<ExamEntity> exams;
 	
 	
 	public ClassEntity() {}
-	public ClassEntity(int classId, String subject, int yearLevel, String section, boolean isActive) {
+	public ClassEntity(int classId, String subject, int yearLevel, String section, boolean isDeleted) {
 		super();
 		this.classId = classId;
 		this.subject = subject;
 		this.yearLevel = yearLevel;
 		this.section = section;
-		this.isActive = isActive;
+		this.isDeleted = isDeleted;
 	}
 	public String getSubject() {
 		return subject;
@@ -69,16 +70,22 @@ public class ClassEntity {
 	public void setSection(String section) {
 		this.section = section;
 	}
-	public boolean isActive() {
-		return isActive;
+	public boolean isDeleted() {
+		return isDeleted;
 	}
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+	public TeacherEntity getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(TeacherEntity teacher) {
+		this.teacher = teacher;
 	}
 	public int getClassId() {
 		return classId;
 	}
 
-	
+
 		
 }

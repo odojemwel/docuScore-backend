@@ -39,6 +39,7 @@ public class ScoreController {
 		ExamEntity exam = exserv.getExamById(examId);
 //		StudentEntity student = get Student by StudentId
 		StudentEntity student = stserv.getStudentById(studentId);
+//		return scserv.getScore(examId, studentId);
 		return scserv.getScore(exam, student);
 	}
 }

@@ -58,5 +58,8 @@ public class TeacherService {
 		return trepo.findByTeacherId(id);
 	}
 	
-	
+	//get Teacher By Employee ID and Password (LOGIN)
+	public TeacherEntity login(String employeeId, String password) {
+		return trepo.findByEmployeeIdAndPassword(employeeId, password);
+	}
 }

@@ -1,8 +1,13 @@
 package com.docuscore.docs.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,4 +47,26 @@ public class ScoreController {
 //		return scserv.getScore(examId, studentId);
 		return scserv.getScore(exam, student);
 	}
+	
+	@GetMapping("/getScoreByExamAndClass")
+	List<ScoreEntity> findByExam(@RequestParam int classId, @RequestParam int examId){
+		return scserv.getByClassAndExam(classId, examId);
+	}
+	
+	
+	@PutMapping("/putScore")
+	public ScoreEntity putScore(@RequestParam int scoreId, @RequestBody ScoreEntity newScore) throws Exception{
+		return scserv.putScore(scoreId, newScore);
+	}
+
+	
+	//TODO create delete score Controller
+	@DeleteMapping("/deleteScore/{scoreId}")
+	public String deleteScore(@PathVariable int scoreId) {
+		return scserv.deleteScore(scoreId);
+	}
+	
+	
+	
+	
 }

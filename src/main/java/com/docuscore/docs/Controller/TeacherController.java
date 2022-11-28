@@ -65,4 +65,11 @@ public class TeacherController {
 		return clserv.getClassByTeacher(teacher);
 	}
 	
+	//get Teacher By Employee ID and Password (LOGIN)
+	@GetMapping("/login")
+	public TeacherEntity login(@RequestParam String employeeId, @RequestParam String password) {
+		return tserv.login(employeeId, password);
+	}
+	
+	
 }

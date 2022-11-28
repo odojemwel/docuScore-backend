@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.docuscore.docs.Entity.StudentEntity;
+import com.docuscore.docs.Service.ClassService;
 import com.docuscore.docs.Service.StudentService;
 
 @RestController
@@ -23,11 +24,17 @@ public class StudentController {
 	@Autowired
 	StudentService stserv;
 	
+	@Autowired
+	ClassService clserv;
+	
+	//@Autowired
+	//EnrollService eserv;
+	
 	
 	//Create
 	@PostMapping("/postStudent")
-	public StudentEntity insertStudent(@RequestBody StudentEntity student) {
-		return stserv.insertStudent(student);
+	public StudentEntity insertStudent(@RequestBody StudentEntity student,@RequestParam int class_id) {
+		return stserv.insertStudent(student, class_id);
 	}
 	
 	//Read all
@@ -35,6 +42,12 @@ public class StudentController {
 	public List<StudentEntity> getAllStudents(){
 		return stserv.getAllStudents();
 	} 
+	
+	//@GetMapping("/getStudentsByClassId")
+	//public StudentEntity getStudentByClassId(@RequestParam int classId) {
+	//	ClassEntity classe = clserv.getClassById(classId);
+	//	return stserv.getStudentByClassId(classe);
+	//}
 	
 	//Update
 	@PutMapping("/putStudent")

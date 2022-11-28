@@ -6,7 +6,11 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.docuscore.docs.Entity.ClassEntity;
+import com.docuscore.docs.Entity.EnrollEntity;
 import com.docuscore.docs.Entity.StudentEntity;
+import com.docuscore.docs.Repository.ClassRepository;
+import com.docuscore.docs.Repository.EnrollRepository;
 import com.docuscore.docs.Repository.StudentRepository;
 
 @Service
@@ -15,9 +19,21 @@ public class StudentService {
 	@Autowired
 	StudentRepository srepo;
 	
+	@Autowired
+	EnrollRepository enrepo;
+	
+	@Autowired
+	ClassRepository clrepo;
+	
 	//Create
-		public StudentEntity insertStudent(StudentEntity student) {
-			return srepo.save(student);
+		public StudentEntity insertStudent(StudentEntity student, int class_id) {
+			EnrollEntity enroll = new EnrollEntity();
+			ClassEntity classe = clrepo.findByClassId(class_id);
+			enroll.setStudent(student);
+			enroll.setClass_enrolled(classe);
+			student = srepo.save(student);
+			enrepo.save(enroll);
+			return student;
 		}
 		
 	//Read all
@@ -66,4 +82,9 @@ public class StudentService {
 		public StudentEntity getStudentById(int studentId) {
 			return srepo.findByStudentId(studentId);
 		}
+		
+	//get Student by ClassId
+	//	public StudentEntity getClassById(ClassEntity classe) {
+	//		return srepo.findByClassId(classe);
+	//	}
 } 

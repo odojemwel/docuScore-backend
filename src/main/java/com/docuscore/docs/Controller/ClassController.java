@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.docuscore.docs.Entity.ClassEntity;
+import com.docuscore.docs.Entity.TeacherEntity;
 import com.docuscore.docs.Service.ClassService;
 
 @RestController
@@ -46,5 +47,12 @@ public class ClassController {
 	@DeleteMapping("/deleteClass/{id}")
 	public String deleteClass(@PathVariable int id) {
 		return clserv.deleteClass(id);
-	}	
+	}
+	//get All Classes By Class
+		@GetMapping("/getClassbyId/{classId}")
+		public ClassEntity getClassById(@PathVariable int classId){
+			return clserv.getClassById(classId);
+		}
 }
+	
+		

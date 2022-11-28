@@ -84,7 +84,7 @@ public class StudentService {
 		}
 		
 	//get Student by ClassId
-	//	public StudentEntity getClassById(ClassEntity classe) {
-	//		return srepo.findByClassId(classe);
+	//	public StudentEntity getClassById(ClassEntity class) {
+	//		return srepo.findByClassId(class);
 	//	}
 } 

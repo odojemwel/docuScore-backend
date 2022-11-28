@@ -12,4 +12,5 @@ import com.docuscore.docs.Entity.TeacherEntity;
 public interface ClassRepository extends JpaRepository<ClassEntity, Integer>{
 	
 	List<ClassEntity> findByTeacher(TeacherEntity teacher);
+	ClassEntity findByClassId(int classId);
 }

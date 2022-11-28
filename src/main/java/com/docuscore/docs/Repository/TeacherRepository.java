@@ -7,6 +7,7 @@ import com.docuscore.docs.Entity.TeacherEntity;
 
 @Repository
 public interface TeacherRepository extends JpaRepository<TeacherEntity, Integer>{
+	
 	TeacherEntity findByTeacherId(int id);
 	TeacherEntity findByEmployeeIdAndPassword(String employeeId, String password);
 }

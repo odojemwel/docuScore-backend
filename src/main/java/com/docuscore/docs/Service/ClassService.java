@@ -63,7 +63,7 @@ public class ClassService {
 			return null;
 	}
 	//get Class by Class ID
-		public ClassEntity getClassById(int classId) {
-			return crepo.findByClassId(classId);
+		public ClassEntity getClassById(int id) {
+			return crepo.findByClassId(id);
 	}
 }

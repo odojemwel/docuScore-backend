@@ -43,11 +43,16 @@ public class StudentController {
 		return stserv.getAllStudents();
 	} 
 	
-	//@GetMapping("/getStudentsByClassId")
-	//public StudentEntity getStudentByClassId(@RequestParam int classId) {
-	//	ClassEntity classe = clserv.getClassById(classId);
-	//	return stserv.getStudentByClassId(classe);
-	//}
+	//Read all Student by StudentId
+	@GetMapping("/getStudentsById/{id}")
+	public StudentEntity findByStudentId(@PathVariable int id) {
+		return stserv.getStudentById(id);
+	}
+	
+	@GetMapping("/getStudentsByClassId")
+	public List<StudentEntity> getStudentByClassId(@RequestParam int classId) {
+		return stserv.getStudentByClassId(classId);
+	}
 	
 	//Update
 	@PutMapping("/putStudent")

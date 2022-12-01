@@ -40,6 +40,19 @@ public class StudentService {
 		public List<StudentEntity> getAllStudents(){
 			return srepo.findAll();
 		}
+		
+	//findStudentById
+		public StudentEntity getStudentById(int id) {
+			if (srepo.findByStudentId(id) != null)
+				return srepo.findByStudentId(id);
+			else
+				return null;
+		}
+		
+	//get Student by ClassId
+		public List<StudentEntity> getStudentByClassId(int classId){
+			return srepo.findByClassId(classId);
+		}
 
 	//Update
 		public StudentEntity putStudent(int studentId, StudentEntity newStudentDetails) throws Exception {
@@ -48,13 +61,13 @@ public class StudentService {
 			
 			try {
 				//steps in updating
+				
 				//Step 1 - search the id number of the student
 				student = srepo.findById(studentId).get();
-				
+
 				//Step 2 - update the record
 				student.setStudSchoolId(newStudentDetails.getStudSchoolId());
-				//student.setFirstName(newStudentDetails.getFirstName());
-				//student.setLastName(newStudentDetails.getLastName());
+				
 				//Step 3 - save the information and return the value
 				return srepo.save(student);
 			
@@ -78,13 +91,4 @@ public class StudentService {
 			return msg;
 		}
 		
-	//findStudentById
-		public StudentEntity getStudentById(int studentId) {
-			return srepo.findByStudentId(studentId);
-		}
-		
-	//get Student by ClassId
-	//	public StudentEntity getClassById(ClassEntity class) {
-	//		return srepo.findByClassId(class);
-	//	}
-} 
+}

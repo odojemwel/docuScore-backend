@@ -3,6 +3,7 @@ package com.docuscore.docs.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.docuscore.docs.Service.ScoreService;
 import com.docuscore.docs.Service.StudentService;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/score")
 public class ScoreController {
 
@@ -60,7 +62,7 @@ public class ScoreController {
 	}
 
 	
-	//TODO create delete score Controller
+
 	@DeleteMapping("/deleteScore/{scoreId}")
 	public String deleteScore(@PathVariable int scoreId) {
 		return scserv.deleteScore(scoreId);

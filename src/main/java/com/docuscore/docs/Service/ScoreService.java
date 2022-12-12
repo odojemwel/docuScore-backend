@@ -47,7 +47,6 @@ public class ScoreService {
 	}
 	
 	//delete Score
-	//TODO create delete score service
 	public String deleteScore(int scoreId) {
 		String msg;
 		if(screpo.findById(scoreId).orElse(null) != null) {

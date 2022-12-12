@@ -11,6 +11,6 @@ import com.docuscore.docs.Entity.TeacherEntity;
 @Repository
 public interface ClassRepository extends JpaRepository<ClassEntity, Integer>{
 	
-	List<ClassEntity> findByTeacher(TeacherEntity teacher);
+	List<ClassEntity> findByTeacherAndIsDeleted(TeacherEntity teacher, boolean isDeleted);
 	ClassEntity findByClassId(int classId);
 }

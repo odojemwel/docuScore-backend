@@ -31,9 +31,12 @@ public class TeacherService {
 		TeacherEntity teacher = new TeacherEntity();
 		try {
 			teacher = trepo.findById(teacherId).get();
-			teacher.setDateEmployed(newTeacher.getDateEmployed());
+//			teacher.setDateEmployed(newTeacher.getDateEmployed());
 			teacher.setDeleted(newTeacher.isDeleted());
 			teacher.setPassword(newTeacher.getPassword());
+			teacher.setEmployeeId(newTeacher.getEmployeeId());
+			teacher.setFirstName(newTeacher.getFirstName());
+			teacher.setLastName(newTeacher.getLastName());
 			return trepo.save(teacher);
 		}catch(NoSuchElementException e) {
 			throw new Exception("Teacher with ID " +teacherId+ " does not exist.");

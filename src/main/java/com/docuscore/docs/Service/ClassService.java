@@ -55,8 +55,8 @@ public class ClassService {
 	
 	
 	//findClassesByTeacherID
-	public List<ClassEntity> getClassByTeacher(TeacherEntity teacher){
-		List<ClassEntity> classes = crepo.findByTeacher(teacher);
+	public List<ClassEntity> getClassByTeacherAndIsDeleted(TeacherEntity teacher, boolean isDeleted){
+		List<ClassEntity> classes = crepo.findByTeacherAndIsDeleted(teacher, isDeleted);
 		if(classes != null) {
 			return classes;
 		}else

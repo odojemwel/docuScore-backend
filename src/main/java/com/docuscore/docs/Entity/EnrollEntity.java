@@ -56,9 +56,8 @@ public class EnrollEntity {
 	public ClassEntity getClass_enrolled() {
 		return class_enrolled;
 	}
-	public void setClass_enrolled(ClassEntity class_enrolled) {
-		this.class_enrolled = class_enrolled;
+	public void setClass_enrolled(ClassEntity classe) {
+		this.class_enrolled = classe;
 	}
-	
-	
+
 }

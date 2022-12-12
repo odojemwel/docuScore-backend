@@ -96,7 +96,4 @@ public class StudentEntity {
 		return lastName;
 	}
 
-	
-	
-	
 }

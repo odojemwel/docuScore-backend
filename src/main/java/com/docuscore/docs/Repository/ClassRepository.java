@@ -12,9 +12,15 @@ import com.docuscore.docs.Entity.ExamEntity;
 @Repository
 public interface ClassRepository extends JpaRepository<ClassEntity, Integer>{
 	
+
 	List<ClassEntity> findByTeacher(TeacherEntity teacher);
 	
 	List<ExamEntity> findByClassId(ClassEntity classId);
 	
+
+	List<ClassEntity> findByTeacherAndIsDeleted(TeacherEntity teacher, boolean isDeleted);
+
 	ClassEntity findByClassId(int classId);
+
+
 }

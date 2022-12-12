@@ -71,4 +71,12 @@ public class ClassService {
 		return crepo.findByClassId(classId);
 	}
 
+	public List<ClassEntity> getClassByTeacherAndIsDeleted(TeacherEntity teacher, boolean isDeleted) {
+			List<ClassEntity> classes = crepo.findByTeacherAndIsDeleted(teacher, isDeleted);
+			if(classes != null) {
+				return classes;
+			}else	
+		return null;
+	}
+
 }

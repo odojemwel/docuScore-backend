@@ -21,6 +21,7 @@ import com.docuscore.docs.Service.ClassService;
 import com.docuscore.docs.Service.ExamService;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/Exam")
 @CrossOrigin("http://localhost:3000")
 public class ExamController {

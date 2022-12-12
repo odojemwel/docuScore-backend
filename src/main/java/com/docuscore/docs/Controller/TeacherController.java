@@ -3,6 +3,7 @@ package com.docuscore.docs.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.docuscore.docs.Service.ClassService;
 import com.docuscore.docs.Service.TeacherService;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/teacher")
 public class TeacherController {
 
@@ -59,10 +61,17 @@ public class TeacherController {
 	}
 	
 	//get All Classes By Teacher
-	@GetMapping("/classes/{teacherId}")
-	public List<ClassEntity> getClassByTeacher(@PathVariable int teacherId){
+	@GetMapping("/classes")
+	public List<ClassEntity> getClassByTeacher(@RequestParam int teacherId, @RequestParam boolean isDeleted){
 		TeacherEntity teacher = tserv.getTeacherById(teacherId);
-		return clserv.getClassByTeacher(teacher);
+		return clserv.getClassByTeacherAndIsDeleted(teacher, isDeleted);
 	}
+	
+	//get Teacher By Employee ID and Password (LOGIN)
+	@GetMapping("/login")
+	public TeacherEntity login(@RequestParam String employeeId, @RequestParam String password) {
+		return tserv.login(employeeId, password);
+	}
+	
 	
 }

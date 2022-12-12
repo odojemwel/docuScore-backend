@@ -3,6 +3,7 @@ package com.docuscore.docs.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.docuscore.docs.Service.ClassService;
 import com.docuscore.docs.Service.ExamService;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/Class")
 public class ClassController {
 	
@@ -50,7 +52,15 @@ public class ClassController {
 	@DeleteMapping("/deleteClass/{id}")
 	public String deleteClass(@PathVariable int id) {
 		return clserv.deleteClass(id);
+
 	}	
 
 
+	//get All Classes By Class
+	@GetMapping("/getClassbyId/{classId}")
+	public ClassEntity getClassById(@PathVariable int classId){
+		return clserv.getClassById(classId);
+	}
 }
+	
+

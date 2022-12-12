@@ -7,14 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.docuscore.docs.Entity.ClassEntity;
+import com.docuscore.docs.Entity.ExamEntity;
 import com.docuscore.docs.Entity.TeacherEntity;
 import com.docuscore.docs.Repository.ClassRepository;
+import com.docuscore.docs.Repository.ExamRepository;
 
 @Service
 public class ClassService {
 
 	@Autowired
 	ClassRepository crepo;
+	@Autowired
+	ExamRepository erepo;
 	
 	//Create
 	public ClassEntity createClass(ClassEntity newClass) {
@@ -62,4 +66,9 @@ public class ClassService {
 		}else
 			return null;
 	}
+	
+	public ClassEntity getClassById(int classId) {
+		return crepo.findByClassId(classId);
+	}
+
 }

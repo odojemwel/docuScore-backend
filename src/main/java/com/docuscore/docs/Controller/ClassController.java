@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.docuscore.docs.Entity.ClassEntity;
+import com.docuscore.docs.Entity.ExamEntity;
+import com.docuscore.docs.Entity.TeacherEntity;
 import com.docuscore.docs.Service.ClassService;
+import com.docuscore.docs.Service.ExamService;
 
 @RestController
 @RequestMapping("/Class")
@@ -22,6 +25,7 @@ public class ClassController {
 	
 	@Autowired
 	ClassService clserv;
+	ExamService eserv;
 	
 	
 	//Create
@@ -47,4 +51,6 @@ public class ClassController {
 	public String deleteClass(@PathVariable int id) {
 		return clserv.deleteClass(id);
 	}	
+
+
 }

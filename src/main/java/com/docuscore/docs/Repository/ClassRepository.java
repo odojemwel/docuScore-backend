@@ -7,9 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import com.docuscore.docs.Entity.ClassEntity;
 import com.docuscore.docs.Entity.TeacherEntity;
+import com.docuscore.docs.Entity.ExamEntity;
 
 @Repository
 public interface ClassRepository extends JpaRepository<ClassEntity, Integer>{
 	
 	List<ClassEntity> findByTeacher(TeacherEntity teacher);
+	
+	List<ExamEntity> findByClassId(ClassEntity classId);
+	
+	ClassEntity findByClassId(int classId);
 }

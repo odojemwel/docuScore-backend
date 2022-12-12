@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.docuscore.docs.Entity.ClassEntity;
 import com.docuscore.docs.Entity.ExamEntity;
 import com.docuscore.docs.Repository.ExamRepository;
 
@@ -48,9 +49,9 @@ public class ExamService {
 		String msg;
 		if(erepo.findById(examId) != null) {
 			erepo.deleteById(examId);
-			msg = "exam with ID " +examId+ "is deleted!";
+			msg = "exam with ID " +examId+ " is deleted!";
 		}else {
-			msg = "exam with ID " +examId+ "does not exist!";
+			msg = "exam with ID " +examId+ " does not exist!";
 		}
 		return msg;
 	}
@@ -59,4 +60,14 @@ public class ExamService {
 	public ExamEntity getExamById(int examId) {
 		return erepo.findByExamId(examId);
 	}
+
+	//findExamByClassID
+	public List<ExamEntity> getExamByClass(ClassEntity classId) {
+		List<ExamEntity> exam = erepo.findByClassId(classId);
+		if(exam != null) {
+			return exam;
+		}else
+		return null;
+	}
+
 }

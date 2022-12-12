@@ -41,6 +41,7 @@ public class ExamEntity {
 			nullable=false
 			)
 	private ClassEntity classId;
+	
 
 	
 	public ExamEntity() {

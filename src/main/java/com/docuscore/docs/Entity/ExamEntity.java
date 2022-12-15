@@ -30,8 +30,7 @@ public class ExamEntity {
 	@Column(name="is_deleted", columnDefinition = "BOOLEAN")
 	private boolean isDeleted;
 	
-//	@OneToOne(mappedBy="exam", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	private ScoreEntity score;
+
 	@OneToMany(mappedBy="exam", cascade=CascadeType.ALL)
 	private Set<ScoreEntity> score;
 	

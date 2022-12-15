@@ -30,4 +30,14 @@ public interface ScoreRepository extends JpaRepository<ScoreEntity, Integer>{
 			nativeQuery = true
 			)
 	List<ScoreEntity> findByClassAndExam(int classId, int examId);
+	
+	@Query(
+			value = "SELECT s.score_id, s.value, s.exam_id, s.student_id "
+					+ "FROM tbl_score s, tbl_student st "
+					+ "WHERE s.student_id = st.student_id "
+					+ "AND st.student_id = ?1 "
+					+ "ORDER BY s.exam_id",
+			nativeQuery = true
+			)
+	List<ScoreEntity> findByStudentId(int studentId);
 }

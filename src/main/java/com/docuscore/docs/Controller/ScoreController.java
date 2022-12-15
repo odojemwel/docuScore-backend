@@ -55,6 +55,11 @@ public class ScoreController {
 		return scserv.getByClassAndExam(classId, examId);
 	}
 	
+	@GetMapping("/getScoreByStudent")
+	List<ScoreEntity> getByStudent(@RequestParam int studentId){
+		return scserv.getByStudent(studentId);
+	}
+	
 	
 	@PutMapping("/putScore")
 	public ScoreEntity putScore(@RequestParam int scoreId, @RequestBody ScoreEntity newScore) throws Exception{

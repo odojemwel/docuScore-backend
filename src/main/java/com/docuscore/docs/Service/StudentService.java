@@ -67,6 +67,10 @@ public class StudentService {
 
 				//Step 2 - update the record
 				student.setStudSchoolId(newStudentDetails.getStudSchoolId());
+				student.setClassNumber(newStudentDetails.getClassNumber());
+				student.setDeleted(newStudentDetails.isDeleted());
+				student.setFirstName(newStudentDetails.getFirstName());
+				student.setLastName(newStudentDetails.getLastName());
 				
 				//Step 3 - save the information and return the value
 				return srepo.save(student);

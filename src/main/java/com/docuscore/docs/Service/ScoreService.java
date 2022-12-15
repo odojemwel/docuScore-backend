@@ -33,6 +33,11 @@ public class ScoreService {
 		return screpo.findByClassAndExam(classId, examId);
 	}
 	
+	//get score by student_id order by exam_id
+	public List<ScoreEntity> getByStudent(int studentId){
+		return screpo.findByStudentId(studentId);
+	}
+	
 	
 	//update Score
 	public ScoreEntity putScore(int scoreId, ScoreEntity newScore) throws Exception{

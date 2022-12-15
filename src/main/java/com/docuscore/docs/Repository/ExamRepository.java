@@ -11,6 +11,5 @@ import com.docuscore.docs.Entity.ExamEntity;
 @Repository
 public interface ExamRepository extends JpaRepository<ExamEntity, Integer>{
 	ExamEntity findByExamId(int examId);
-
 	List<ExamEntity> findByClassId(ClassEntity classId);
 }

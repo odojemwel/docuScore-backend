@@ -29,8 +29,6 @@ public class StudentController {
 	@Autowired
 	ClassService clserv;
 	
-	//@Autowired
-	//EnrollService eserv;
 	
 	
 	//Create

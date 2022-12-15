@@ -91,9 +91,15 @@ public class StudentEntity {
 		return firstName;
 	}
 
+	public void setFirstName(String firstname) {
+		this.firstName = firstname;
+	}
 
 	public String getLastName() {
 		return lastName;
 	}
 
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 }

@@ -23,4 +23,6 @@ public interface StudentRepository extends JpaRepository<StudentEntity, Integer>
 			)
 	List<StudentEntity> findByClassId(int classId);
 
+	StudentEntity findByClassNumber(int sNumber);
+
 }

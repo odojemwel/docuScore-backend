@@ -42,7 +42,11 @@ public class StudentController {
 	public List<StudentEntity> getAllStudents(){
 		return stserv.getAllStudents();
 	} 
-	
+
+	@GetMapping("/getByStudentNumber")
+	public StudentEntity findByClassNumber(@RequestParam int sNumber){
+		return stserv.findByClassNumber(sNumber);
+	}
 
 	//Read all Student by StudentId
 	@GetMapping("/getStudentsById/{id}")

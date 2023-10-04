@@ -48,7 +48,14 @@ public class StudentService {
 			else
 				return null;
 		}
-		
+
+	public StudentEntity findByClassNumber(int sNumber){
+		if (srepo.findByClassNumber(sNumber) != null) {
+			return srepo.findByClassNumber(sNumber);
+		}
+		return null;
+	}
+
 	//get Student by ClassId
 		public List<StudentEntity> getStudentByClassId(int classId){
 			return srepo.findByClassId(classId);
